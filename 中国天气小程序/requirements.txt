@@ -1,0 +1,5 @@
+PyQt5
+requests
+pyinstaller
+
+#可以使用 Pyinstaller -F weather.py 打包成exe文件

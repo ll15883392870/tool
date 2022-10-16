@@ -1,5 +1,6 @@
 PyQt5
+PyQt5-tools
 requests
 pyinstaller
-
+bs4
 #可以进入文件夹使用 Pyinstaller -F weather.py 打包成exe文件

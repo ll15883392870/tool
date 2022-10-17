@@ -83,7 +83,9 @@ class Ui_MainWindow(object):
             length = len(result.split(";"))
             for i in range(0, length):
                 str_data += result.split(";")[i].strip() + '\n'
-        str_data = f"百度翻译\n\n原文：{data}\n\n译文：{str_data}"
+            str_data = f"百度翻译\n\n原文：{data}\n\n译文：{str_data}"
+        else:
+            str_data = f"百度翻译\n\n原文：{data}\n\n译文：{result}"
         self.textBrowser_2.setText(str_data)
 
 

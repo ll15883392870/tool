@@ -97,13 +97,10 @@ class Ui_MainWindow(object):
         headers = {
             "User-Agent": Headers.Header_forge_chrome[number]
         }
-        city_response = requests.get("http://www.nmc.cn/essearch/api/autocomplete", params=params,
+        city_response = requests.get("http://www.nmc.cn/rest/position", params=params,
                                      headers=headers)
-        data = city_response.json()['data']
-        code = ""
-        for i in data:
-            if city in i:
-                code = str(i).split("|")[0]
+        data = city_response.json()
+        code=data['code']
         newParams = {"stationid": code,
                      "_": int(time.time() * 1000)}
         response = requests.get("http://www.nmc.cn/rest/weather", params=newParams,

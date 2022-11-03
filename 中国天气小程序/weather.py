@@ -92,7 +92,7 @@ class Ui_MainWindow(object):
                   "limit": 10,
                   "timestamp": int(time.time() * 1000),
                   "_": int(time.time() * 1000)}
-        header_length = len(Headers.Header_forge_chrome)
+        header_length = len(Headers.Header_forge_chrome-1)
         number = random.randint(0, header_length)
         headers = {
             "User-Agent": Headers.Header_forge_chrome[number]

@@ -61,12 +61,12 @@ class Ui_MainWindow(object):
             try:
                 self.get(query_text)
             except Exception as e:
-                self.textBrowser.setText("请输入城市名！")
+                self.textBrowser.setText("查询出错！")
 
     def local_query(self):
-        url = "http://httpbin.org/ip"  # 也可以直接在浏览器访问这个地址
+        url = "https://ip.cn/api/index?ip=&type=0"  # 也可以直接在浏览器访问这个地址
         r = requests.get(url)  # 获取返回的值
-        ip = json.loads(r.text)["origin"]  # 取其中某个字段的值
+        ip = r.json()["ip"]  # 取其中某个字段的值
         # print(ip)
         # 发送get请求
         url = f'http://ip-api.com/json/{ip}?fields=status,message,country,countryCode,region,regionName,city,zip,lat,lon,timezone,isp,org,as,query&lang=zh-CN'
@@ -77,7 +77,7 @@ class Ui_MainWindow(object):
         try:
             self.get(city)
         except Exception as e:
-            self.textBrowser.setText("请输入城市名！")
+            self.textBrowser.setText("查询出错！")
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
@@ -92,7 +92,7 @@ class Ui_MainWindow(object):
                   "limit": 10,
                   "timestamp": int(time.time() * 1000),
                   "_": int(time.time() * 1000)}
-        header_length = len(Headers.Header_forge_chrome-1)
+        header_length = len(Headers.Header_forge_chrome)-1
         number = random.randint(0, header_length)
         headers = {
             "User-Agent": Headers.Header_forge_chrome[number]
